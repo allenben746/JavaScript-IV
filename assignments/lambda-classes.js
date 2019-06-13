@@ -80,10 +80,15 @@ runInsructorInfo = () => {
     const studentOfInstructor = new Student(
         `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
     )
-    
-    danLevy.demo("Jello");
-    danLevy.grade(studentOfInstructor, `Jello`);
-    
+    danLevy.speak();
+    danLevy.demo("Ruby on Rails");
+    danLevy.grade(studentOfInstructor, `Javascript`);
+    joshKnoll.speak();
+    joshKnoll.demo("Ruby on Rails");
+    joshKnoll.grade(studentOfInstructor, `Javascript`);
+    michealScott.speak();
+    michealScott.demo("Ruby on Rails");
+    michealScott.grade(studentOfInstructor, `Javascript`);
 }
 
 
@@ -115,4 +120,7 @@ joseRamirez.listsSubject();
 joseRamirez.sprintChallenge("Javascript");
 }
 
+//Run Functions
+runInsructorInfo();
+// runStudentInfo();
 
