@@ -41,13 +41,10 @@ class Student extends person {
         }
     }
     PRAssignment(subject) { //Method
-        console.log(`${this.name} has submitted a PR for ${subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
     sprintChallenge(subject) { //Method
-        console.log(`${student.name} has begun sprint challenge on ${subject}`);
-    }
-    testArray(){
-        console.log(this.favSubjectsArray);
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
@@ -67,11 +64,31 @@ class ProjectManager extends person {
 
 //Objects
 
-const benAllen = new Student(
-    `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
-);
-
+runStudentInfo = () => {
+    //New Students
+    const benAllen = new Student(
+        `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
+    );
+    
+    const mikeNukem = new Student (
+        `Mike Nukem`, 49, `Navasota`, `Contruction`, `Web21`, [`CSS`, `Ruby on Rails`]
+    );
+    
+    const joseRamirez = new Student (
+        `Jose Ramirez`, 31, `Houston`, `Sales & Marketing`, `Web21`, ["Java", "HTML", "CSS"]
+    );
+    //Runs Students Info
 benAllen.speak();
 benAllen.PRAssignment(`JavaScript III`);
-benAllen.testArray();
 benAllen.listsSubject();
+benAllen.sprintChallenge("Javascript");
+mikeNukem.speak();
+mikeNukem.PRAssignment(`JavaScript III`);
+mikeNukem.listsSubject();
+mikeNukem.sprintChallenge("Javascript");
+joseRamirez.speak();
+joseRamirez.PRAssignment(`JavaScript III`);
+joseRamirez.listsSubject();
+joseRamirez.sprintChallenge("Javascript");
+}
+
