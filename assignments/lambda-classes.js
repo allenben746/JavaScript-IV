@@ -32,22 +32,26 @@ class Student extends person {
         super(name, age, location);
         this.previousBackground = previousBackground;
         this.className = className;
-        this.favSubjects = favSubjectsArray;
+        this.favSubjectsArray = favSubjectsArray;
     }
-    listsSubject(array){ //Method
-        for(i=0;i < array.length;i++){
-            console.log(array[i]);
+    listsSubject(){ //Method
+        
+        for(let i = 0; i < this.favSubjectsArray.length; i++){
+            console.log(this.favSubjectsArray[i]);
         }
     }
     PRAssignment(subject) { //Method
-        console.log(`${student.name} has submitted a PR for ${subject}`);
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
     sprintChallenge(subject) { //Method
         console.log(`${student.name} has begun sprint challenge on ${subject}`);
     }
+    testArray(){
+        console.log(this.favSubjectsArray);
+    }
 }
 
-class ProjectManage extends person {
+class ProjectManager extends person {
     constructor(name, age, location, gradClassName, favInstructor) {
         super(name, age, location);
         this.gradClassName = gradClassName;
@@ -57,6 +61,17 @@ class ProjectManage extends person {
         console.log(`${name} announces to ${channel}, @channel standt times!`);
     }
     debugsCode(studentObj, subject) { //Method
-    console.log(`${name} debugs ${student.names}'s code on ${subject}`);
+    console.log(`${name} debugs ${studentObj.names}'s code on ${subject}`);
     }
 }
+
+//Objects
+
+const benAllen = new Student(
+    `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
+);
+
+benAllen.speak();
+benAllen.PRAssignment(`JavaScript III`);
+benAllen.testArray();
+benAllen.listsSubject();
