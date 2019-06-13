@@ -26,5 +26,30 @@ class Insructor extends person {
     }
     
 }
+
+// class Student extends person {
+//     constructor(name, age, location, previousBackground, className, favSubjectsArray){
+//         super(name, age, location);
+//         this.previousBackground = previousBackground;
+//         this.className = className;
+//         this.favSubjects = favSubjectsArray;
+//     }
+//     listsSubject(array){
+//         for(i=0;i>array.length;i++){
+//             console.log(array[i]);
+//         }
+//     }
+// }
 const Ben = new person("Ben", "21", "Houston");
 Ben.speak();
+
+numArray = [1,2,3,4,5,6];
+nameArray = [`ben`, `mike`, `james`, `sara`];
+
+function arrayTest(array) {
+    for(i = 0;i > array.length;i++){
+       console.log(array[i]);
+    }
+}
+console.log(numArray[1]);
+arrayTest(numArray);
