@@ -1,21 +1,21 @@
 // CODE here for your Lambda Classes
-class person { //This is the Class that all other classes will extend from - Ben Allen
-    constructor(name, age, location){
-        this.name = name;
-        this.age = age;
-        this.location = location;
+class Person { //This is the Class that all other classes will extend from - Ben Allen
+    constructor(attributes){
+        this.name = attributes.name;
+        this.age = attributes.age;
+        this.location = attributes.location;
     }
     speak() { //Method
         console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
-class Insructor extends person {
-    constructor(name, age, location, specialty, favLanguage, catchPhrase){
-        super(name, age, location);
-        this.specialty = specialty;
-        this.favLanguage = favLanguage;
-        this.catchPhrase = catchPhrase;
+class Insructor extends Person {
+    constructor(attributes){
+        super(attributes);
+        this.specialty = attributes.specialty;
+        this.favLanguage = attributes.favLanguage;
+        this.catchPhrase = attributes.catchPhrase;
     }
     demo(subject) { //Method
         console.log(`Today we are learning about ${subject}.`);
@@ -27,15 +27,15 @@ class Insructor extends person {
     
 }
 
-class Student extends person {
-    constructor(name, age, location, previousBackground, className, favSubjectsArray){
-        super(name, age, location);
-        this.previousBackground = previousBackground;
-        this.className = className;
-        this.favSubjectsArray = favSubjectsArray;
+class Student extends Person {
+    constructor(attributes){
+        super(attributes);
+        this.previousBackground = attributes.previousBackground;
+        this.className = attributes.className;
+        this.favSubjectsArray = attributes.favSubjectsArray;
     }
     listsSubject(){ //Method
-        
+        console.log('My favorite subjects are:');
         for(let i = 0; i < this.favSubjectsArray.length; i++){
             console.log(this.favSubjectsArray[i]);
         }
@@ -48,79 +48,128 @@ class Student extends person {
     }
 }
 
-class ProjectManager extends person {
-    constructor(name, age, location, gradClassName, favInstructor) {
-        super(name, age, location);
-        this.gradClassName = gradClassName;
-        this.favInstructor = favInstructor;
+class ProjectManager extends Person {
+    constructor(attributes) {
+        super(attributes);
+        this.gradClassName = attributes.gradClassName;
+        this.favInstructor = attributes.favInstructor;
     }
     standUp(channel) { //Method
-        console.log(`${name} announces to ${channel}, @channel standt times!`);
+        console.log(`${this.name} announces to ${channel}, @channel stand up time!`);
     }
     debugsCode(studentObj, subject) { //Method
-    console.log(`${name} debugs ${studentObj.names}'s code on ${subject}`);
+    console.log(`${this.name} debugs ${studentObj.name}'s code on ${subject}`);
     }
 }
-
-//Objects
-runInsructorInfo = () => {
-    //New Insructors
-    const danLevy = new Insructor(
-        `Dan Levy`, 25, `San Fransisco`, `Programming - node.js`, `Javascript`, `I love cats!`
-    );
-
-    const joshKnoll = new Insructor(
-        `Josh Knoll`, 34, `Chicago`, `CSS Styling`, `CSS`, `I love CSS`
-    );
-
-    const michealScott = new Insructor(
-        `Micheal Scott`, 45, `Scranton`, `Comedy`, `English`, `Catch you on the Flippity Flip!` 
-    );
-    
-    const studentOfInstructor = new Student(
-        `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
-    )
-    danLevy.speak();
-    danLevy.demo("Ruby on Rails");
-    danLevy.grade(studentOfInstructor, `Javascript`);
-    joshKnoll.speak();
-    joshKnoll.demo("Ruby on Rails");
-    joshKnoll.grade(studentOfInstructor, `Javascript`);
-    michealScott.speak();
-    michealScott.demo("Ruby on Rails");
-    michealScott.grade(studentOfInstructor, `Javascript`);
-}
-
-
-runStudentInfo = () => {
-    //New Students
-    const benAllen = new Student(
-        `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
-    );
-    
-    const mikeNukem = new Student (
-        `Mike Nukem`, 49, `Navasota`, `Contruction`, `Web21`, [`CSS`, `Ruby on Rails`]
-    );
-    
-    const joseRamirez = new Student (
-        `Jose Ramirez`, 31, `Houston`, `Sales & Marketing`, `Web21`, ["Java", "HTML", "CSS"]
-    );
-    //Runs Students Info
-benAllen.speak();
-benAllen.PRAssignment(`JavaScript III`);
-benAllen.listsSubject();
-benAllen.sprintChallenge("Javascript");
-mikeNukem.speak();
-mikeNukem.PRAssignment(`JavaScript III`);
-mikeNukem.listsSubject();
-mikeNukem.sprintChallenge("Javascript");
-joseRamirez.speak();
-joseRamirez.PRAssignment(`JavaScript III`);
-joseRamirez.listsSubject();
-joseRamirez.sprintChallenge("Javascript");
-}
-
-//Run Functions
-runInsructorInfo();
-// runStudentInfo();
-
+console.log(`*************Students***************`)
+//New Students
+const benAllen = new Student({
+    name:`Ben Allen`,
+    age:21,
+    location:`Houston`,
+    previousBackground:`Retail`,
+    className:`Web21`,
+    favSubjectsArray:["HTML", "CSS"]
+});
+        benAllen.speak();
+        benAllen.listsSubject();
+        benAllen.PRAssignment(`Javascript III`);
+        benAllen.sprintChallenge(`Javascript III`);
+        console.log(`----------------------`)
+const mikeNukem = new Student({
+    name:`Mike Nukem`,
+    age:49,
+    location:`Navasota`,
+    previousBackground:`Contruction`,
+    className:`Web21`,
+    favSubjectsArray:["CSS", "Ruby on Rails"]
+});
+        mikeNukem.speak();
+        mikeNukem.listsSubject();
+        mikeNukem.PRAssignment(`Javascript III`);
+        mikeNukem.sprintChallenge(`Javascript III`);
+        console.log(`----------------------`)
+const joseRamirez = new Student({
+    name:`Jose Ramirez`,
+    age:31,
+    location:`Houston`,
+    previousBackground:`Sales & Marketing`,
+    className:`Web21`,
+    favSubjectsArray:["HTML", "Java"]
+});
+        joseRamirez.speak();
+        joseRamirez.listsSubject();
+        joseRamirez.PRAssignment(`Ruby on Rails`);
+        joseRamirez.sprintChallenge(`Javascript III`);
+console.log(`*************Instructors***************`)
+//Instructors
+const danLevy = new Insructor({
+    name: `Dan Levy`,
+    age: 25, 
+    location: `San Fransisco`,
+    specialty: `Programming - node.js`,
+    favLanguage :`Javascript`,
+    catchPhrase: `I love cats!`
+});
+        danLevy.speak();
+        danLevy.demo("Javascript");
+        danLevy.grade(mikeNukem, `HTML`);
+        console.log(`----------------------`)
+const joshKnoll = new Insructor({
+    name:`Josh Knoll`,
+     age:34,
+    location:`Chicago`,
+    specialty:`CSS Styling`,
+    favLanguage:`CSS`,
+    catchPhrase:`I love CSS`
+});
+        joshKnoll.speak();
+        joshKnoll.demo("CSS");
+        joshKnoll.grade(mikeNukem, `Ruby on Rails`);
+        console.log(`----------------------`)
+const michealScott = new Insructor({
+    name:`Micheal Scott`,
+    agr:45,
+    location:`Scranton`,
+    specialty:`Comedy`,
+    favLanguage:`English`,
+    catchPhrase:`Catch you on the Flippity Flip!` 
+});
+        michealScott.speak();
+        michealScott.demo("CSS");
+        michealScott.grade(mikeNukem, `Ruby on Rails`);
+console.log(`*************PMs***************`)
+//PMs
+const christianIpanaque = new ProjectManager({
+    name:`Christian Ipanaque`,
+    age:`25`,
+    location:`Seattle`,
+    gradClassName:`WEB7`,
+    favInstructor:`Dan Levy`
+});
+        christianIpanaque.speak();
+        christianIpanaque.standUp(`Web21`);
+        christianIpanaque.debugsCode(benAllen, `CSS`);
+        console.log(`----------------------`)
+const marySabol = new ProjectManager({
+    name:`Mary Sabol`,
+    age:`21`,
+    location:`LA`,
+    gradClassName:`Web18`,
+    favInstructor:`Dan Levy`
+});
+        marySabol.speak();
+        marySabol.standUp(`Web20`);
+        marySabol.debugsCode(joseRamirez, `Javascript`);
+        console.log(`----------------------`)
+const angelaMartin = new ProjectManager({
+    name:`Angela Martin`,
+    age:`42`,
+    location:`Scranton`,
+    gradClassName:`WEB4`,
+    favInstructor:`Dan Levy`
+});
+angelaMartin.speak();
+angelaMartin.standUp(`Web19`);
+angelaMartin.debugsCode(mikeNukem, `React`);
+console.log(`****************************`)
