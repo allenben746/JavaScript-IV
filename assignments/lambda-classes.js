@@ -18,7 +18,7 @@ class Insructor extends person {
         this.catchPhrase = catchPhrase;
     }
     demo(subject) { //Method
-        console.log(`Today we are learning about ${subject}`);
+        console.log(`Today we are learning about ${subject}.`);
     }
     
     grade(studentObj, subject) { //Method
@@ -63,6 +63,29 @@ class ProjectManager extends person {
 }
 
 //Objects
+runInsructorInfo = () => {
+    //New Insructors
+    const danLevy = new Insructor(
+        `Dan Levy`, 25, `San Fransisco`, `Programming - node.js`, `Javascript`, `I love cats!`
+    );
+
+    const joshKnoll = new Insructor(
+        `Josh Knoll`, 34, `Chicago`, `CSS Styling`, `CSS`, `I love CSS`
+    );
+
+    const michealScott = new Insructor(
+        `Micheal Scott`, 45, `Scranton`, `Comedy`, `English`, `Catch you on the Flippity Flip!` 
+    );
+    
+    const studentOfInstructor = new Student(
+        `Ben Allen`, 21, `Houston`, `Retail`, `Web21`, ["HTML", "CSS"]
+    )
+    
+    danLevy.demo("Jello");
+    danLevy.grade(studentOfInstructor, `Jello`);
+    
+}
+
 
 runStudentInfo = () => {
     //New Students
@@ -91,4 +114,5 @@ joseRamirez.PRAssignment(`JavaScript III`);
 joseRamirez.listsSubject();
 joseRamirez.sprintChallenge("Javascript");
 }
+
 
